@@ -5,34 +5,39 @@ using namespace std;
 
 int main() {
     string status, gender, major;
-    double scholarship = 10000.0;
+    double baseScholarship = 10000.0;
     double factor = 0.1;
 
-    cin >> status >> gender >> major;
+    cout << "Enter your status: ";
+    cin >> status;
+    cout << "Enter your gender: ";
+    cin >> gender;
+    cout << "Enter your major: ";
+    cin >> major;
 
-    if (status == "student") {
+    if (status == "Student" || status == "student") {
         factor = 0.2;
 
-        if (gender == "female") {
+        if (gender == "Female" || gender == "female") {
             factor = 1.0;
-            if (major == "cs") {
-                factor = 3.0;
+            if (major == "CS" || major == "cs") {
+                factor = 2.0;
             }
         } else {
-            if (major == "cs") {
-                factor = 2.0;
+            if (major == "CS" || major == "cs") {
+                factor = 1.5;
             }
         }
     } else {
-        if (major == "cs") {
+        if (major == "CS" || major == "cs") {
             factor = 0.5;
         }
     }
 
-    double finalScholarship = scholarship * factor;
+    double finalScholarship = baseScholarship * factor;
 
     cout << fixed << setprecision(2);
-    cout << finalScholarship << endl;
+    cout << "Your scholarship amount is: $" << finalScholarship << endl;
 
     return 0;
 }
